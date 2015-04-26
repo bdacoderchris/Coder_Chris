@@ -1,0 +1,22 @@
+﻿<div>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Job Title</th>
+                <th>Location</th>
+                <th>Phone Number</th>
+                <th>Email Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="employee in showEmployees">
+                <td>{{employee.name}}</td>
+                <td>{{employee.jobTitle}}</td>
+                <td>{{employee.location}}</td>
+                <td>{{employee.phone}}</td>
+                <td>{{employee.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
