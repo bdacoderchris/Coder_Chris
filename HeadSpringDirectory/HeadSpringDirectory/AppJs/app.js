@@ -9,7 +9,8 @@ app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
         controller: 'HomeController'
     })
     .when('/directory',{
-        templateUrl: 'AppJs/Views/directory.html'
+        templateUrl: 'AppJs/Views/directory.html',
+        controller: 'HomeController'
     })
     .otherwise({
         redirectTo: '/home'

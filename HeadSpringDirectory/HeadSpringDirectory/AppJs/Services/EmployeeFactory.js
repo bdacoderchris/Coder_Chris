@@ -4,14 +4,6 @@
     var url = "https://headspring.firebaseio.com/directory.json";
     var customUrl = 'https://headspring.firebaseio.com/directory/' + currEmployee + '/.json';
 
-    function Employee(name, jobTitle, location, email, phoneNumber) {
-        this.name = name;
-        this.jobTitle = jobTitle;
-        this.location = location;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
-
     //General Function to return list of Employees
     var getEmployees = function () {
         return directory;
@@ -22,6 +14,27 @@
         directory.push(data);
     }
 
+    //Function to add a new employee record
+    var addNewEmployee = function (employee) {
+        var def = $q.defer();
+        $http({
+            url: url,
+            method: 'POST',
+            data: employee
+        }).success(function (data) {
+            directory.push(employee);
+            def.resolve(data);
+        }).error(function (data) {
+            console.log(data);
+            def.reject();
+        })
+        return def.promise;
+    }
+    
+    //var addNewEmployee = function () {
+    //    $scope.directory.push(new $scope.Employee($scope.employeeName, $scope.employeeJobTitle, $scope.employeeLocation, $scope.employeeEmail, $scope.employeeNumber))
+    //}
+
     //Display full Employee Directory
     var showEmployees = function (data) {
         $http.get(url).success(function (data) {
@@ -30,7 +43,7 @@
             }
             for (var i in data) {
                 data[i].id = i;
-                addEmployyes(data[i]);
+                addEmployees(data[i]);
                 getEmployees();
             }
         })
@@ -81,7 +94,8 @@
         showEmployees: showEmployees,
         editClick: editClick,
         editEmployee: editEmployee,
-        deleteEmployee: deleteEmployee
+        deleteEmployee: deleteEmployee,
+        addNewEmployee: addNewEmployee
     }
 }])
 

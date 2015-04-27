@@ -9,7 +9,7 @@
     <script src="Scripts/angular-route.js"></script>
     <script src="AppJs/app.js"></script>
     <script src="AppJs/Services/LoginFactory.js"></script>
-    <script src="AppJs/Services/AJAXFactory.js"></script>
+    <script src="AppJs/Services/EmployeeFactory.js"></script>
     <script src="AppJs/Controllers/HomeController.js"></script>
     <script src="AppJs/Controllers/SearchController.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
@@ -18,9 +18,9 @@
 </head>
 <body>
     <nav class="navbar">
-        <a href="" class="login-button btn btn-primary">Login</a>
         <a href="/#/home" class="login-button btn btn-primary">Home</a>
-        <a href="/#/directory" class="login-button btn btn-primary">Login</a>
+        <a href="/#/directory" class="login-button btn btn-primary">Directory</a>
+        <input type="button" data-toggle="modal" data-target="#myModal" class="login-button btn btn-primary" value="Add New Employee"/>
     </nav>
     <div ng-view="">
     </div>
