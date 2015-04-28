@@ -2,7 +2,6 @@
     var directory = [];
     var currEmployee;
     var url = "https://headspring.firebaseio.com/directory.json";
-    var customUrl = 'https://headspring.firebaseio.com/directory/' + currEmployee + '/.json';
 
     //General Function to return list of Employees
     var getEmployees = function () {
@@ -54,7 +53,7 @@
         currEmployee = directory[val];
 
         for (var i in directory) {
-            if(currEmployee.id = directory[i].id){
+            if(currEmployee.id == directory[i].id){
                 return directory[i];
             }
         };
@@ -62,15 +61,16 @@
 
     //Function to update employee record
     var editEmployee = function (val) {
-        currEmployee = directory[val].id;
+        //currEmployee = directory.id;
+        var customUrl = 'https://headspring.firebaseio.com/directory/' + currEmployee.id + '/.json';
 
         var def = $q.defer();
         $http.put(customUrl, directory[val])
         .success(function (data) {
-            console.log(directory);
-            def.resolve();
+            console.log(data);
+            def.resolve(data);
         }).error(function () {
-            console.log("Error")
+            //console.log(directory[value])
             def.reject();
         })
         return def.promise;
@@ -84,7 +84,7 @@
         var def = $q.defer();
         $http.delete(customUrl).success(function () {
             directory.splice(val, 1);
-            console.log(currEmployee);
+            //console.log(currEmployee);
         })
     }
 

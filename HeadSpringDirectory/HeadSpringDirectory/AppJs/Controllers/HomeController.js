@@ -3,7 +3,8 @@
         $scope.user = {
             email: '', password: ''
         }
-        $scope.directory = [];
+        $scope.directory = EmployeeFactory.getEmployees();
+        $scope.value;
 
         $scope.employee = function(name, jobTitle, location, email, phone) {
             this.name = name;
@@ -36,7 +37,8 @@
             $scope.newEmployee = new $scope.employee($scope.employeeName, $scope.employeeJobTitle, $scope.employeeLocation, $scope.employeeEmail, $scope.employeeNumber);
             EmployeeFactory.addNewEmployee($scope.newEmployee).then(function (data) {
                 console.log(data);
-                $scope.directory.push(data);
+                $scope.directory = EmployeeFactory.getEmployees();
+                console.log($scope.directory);
             })
             $scope.employeeName = "";
             $scope.employeeJobTitle = "";
@@ -73,6 +75,7 @@
 
         //Front end function to find correct Employee when HR Rep clicks edit
         $scope.editClick = function (val) {
+            $scope.value = val;
             $scope.employeeObj = EmployeeFactory.editClick(val);
             $scope.modelName = $scope.employeeObj.name;
             $scope.modelJobTitle = $scope.employeeObj.jobTitle;
@@ -89,7 +92,7 @@
             $scope.employeeObj.location = $scope.modelLocation;
             $scope.employeeObj.phone = $scope.modelPhone;
             $scope.employeeObj.email = $scope.modelEmail;
-            $scope.editConfirm = EmployeeFactory.editConfirm(val)
+            $scope.editConfirm = EmployeeFactory.editEmployee(val)
             .then(function () {
                 console.log("From HomeController", EmployeeFactory.getEmployees());
                 $scope.employeeArray = EmployeeFactory.getEmployees();
