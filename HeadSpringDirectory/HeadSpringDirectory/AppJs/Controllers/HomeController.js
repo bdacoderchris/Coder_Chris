@@ -6,7 +6,7 @@
         $scope.directory = EmployeeFactory.getEmployees();
         $scope.value;
 
-        $scope.employee = function(name, jobTitle, location, email, phone) {
+        $scope.employee = function (name, jobTitle, location, email, phone) {
             this.name = name;
             this.jobTitle = jobTitle;
             this.location = location;
@@ -26,12 +26,12 @@
             LoginFactory.login($scope.user);
             $location.path('/directory');
             (function (user) {
-            
+
             }, function (error) {
                 $scope.message = error.toString();
             });
         }
-    
+
         //Function to add a new Employee to the directory
         $scope.addNewEmployee = function () {
             $scope.newEmployee = new $scope.employee($scope.employeeName, $scope.employeeJobTitle, $scope.employeeLocation, $scope.employeeEmail, $scope.employeeNumber);
@@ -47,7 +47,7 @@
             $scope.employeeNumber = "";
             $scope.showEmployees();
         }
-    
+
 
         //Function to add Employees from Firebase to local Array
         $scope.populateDirectory = function () {
@@ -75,7 +75,7 @@
 
         //Front end function to find correct Employee when HR Rep clicks edit
         $scope.editClick = function (val) {
-            $scope.value = val;
+            $scope.test = val;
             $scope.employeeObj = EmployeeFactory.editClick(val);
             $scope.modelName = $scope.employeeObj.name;
             $scope.modelJobTitle = $scope.employeeObj.jobTitle;
@@ -101,7 +101,8 @@
 
         //Front end function to find the Employee record and delete it
         $scope.deleteEmployee = function (val) {
-            $scope.deleteConfirm = EmployeeFactory.deleteEmployee(val);
+            $scope.deleteConfirm = EmployeeFactory.deleteEmployee(val)
+            $scope.directory.splice(val, 1);
             $scope.employeeArray = EmployeeFactory.getEmployees();
         }
         $scope.populateDirectory();

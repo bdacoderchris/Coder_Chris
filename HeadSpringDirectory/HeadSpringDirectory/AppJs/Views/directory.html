@@ -65,7 +65,10 @@
                     <td>{{employee.location}}</td>
                     <td>{{employee.phone}}</td>
                     <td>{{employee.email}}</td>
-                    <td><input type="button" data-toggle="modal" data-target="#editModal" ng-click="editClick($index)" class="edit-button btn btn-primary" value="Edit" /></td>
+                    <td>
+                        <input type="button" data-toggle="modal" data-target="#editModal" ng-click="editClick($index)" class="edit-button btn btn-primary" value="Edit" />
+                        <input type="button" ng-click="deleteEmployee($index)" class="edit-button btn btn-primary" value="Delete" />
+                    </td>
                 </tr>
             </tbody>
         </table>

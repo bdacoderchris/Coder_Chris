@@ -1,4 +1,4 @@
-﻿app.factory('EmployeeFactory',['$http', '$q', function ($http, $q) {
+﻿app.factory('EmployeeFactory',['$http', '$q', '$firebase', function ($http, $q, $firebase) {
     var directory = [];
     var currEmployee;
     var url = "https://headspring.firebaseio.com/directory.json";
@@ -61,8 +61,8 @@
 
     //Function to update employee record
     var editEmployee = function (val) {
-        //currEmployee = directory.id;
-        var customUrl = 'https://headspring.firebaseio.com/directory/' + currEmployee.id + '/.json';
+        currEmployee = directory[val].id;
+        var customUrl = 'https://headspring.firebaseio.com/directory/' + currEmployee + '/.json';
 
         var def = $q.defer();
         $http.put(customUrl, directory[val])
@@ -78,14 +78,15 @@
 
     //Function to delete an employee record
     var deleteEmployee = function (val) {
-        currEmployee = directory[val].id;
-        //var currEmployeeId = currEmployee.id;
-
-        var def = $q.defer();
-        $http.delete(customUrl).success(function () {
-            directory.splice(val, 1);
-            //console.log(currEmployee);
-        })
+        currEmployee = directory[val];
+        var currDeleteId = currEmployee.id;
+        var ref = new Firebase('https://headspring.firebaseio.com/directory/' + currDeleteId);
+        ref.remove();
+        directory.splice(val, 1)[0];
+        //var customUrl = 'https://headspring.firebaseio.com/directory/' + currDeleteId + '/.json';
+        //$http.delete(customUrl).success(function () {
+        //    directory.splice(val, 1)[0];
+        //    console.log(directory);
     }
 
     return {
