@@ -72,6 +72,8 @@
     <Content Include="AppJs\Services\LoginFactory.js" />
     <Content Include="AppJs\Views\directory.html" />
     <Content Include="AppJs\Views\home.html" />
+    <Content Include="Content\rotating-card.css" />
+    <Content Include="img\DefaultImage.jpg" />
     <Content Include="index.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

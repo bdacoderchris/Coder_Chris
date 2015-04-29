@@ -6,6 +6,8 @@
     <script src="Scripts/angular.js"></script>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/Site.css" rel="stylesheet" />
+    <link href="Content/rotating-card.css" rel="stylesheet" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
     <script src="Scripts/angular-route.js"></script>
     <script src="AppJs/app.js"></script>
     <script src="AppJs/Services/LoginFactory.js"></script>
@@ -18,9 +20,9 @@
 </head>
 <body>
     <nav class="navbar">
-        <a href="/#/home" class="login-button btn btn-primary">Home</a>
-        <a href="/#/directory" class="login-button btn btn-primary">Directory</a>
-        <input type="button" data-toggle="modal" data-target="#addModal" class="login-button btn btn-primary" value="Add New Employee"/>
+        <input type="button" class="login-button btn btn-primary" ng-hide="authData" ng-click="logout()" value="Logout" />
+        <a href="/#/directory" class="login-button btn btn-primary" ng-hide="!authData">Directory</a>
+        <input type="button" data-toggle="modal" data-target="#addModal" class="login-button btn btn-primary" ng-hide="authData" value="Add New Employee" />
     </nav>
     <div ng-view="">
     </div>

@@ -35,6 +35,9 @@ app.factory('LoginFactory', ['$http', '$q', '$location', '$firebase', '$firebase
         }
 
         ref.onAuth(authDataCallback);
+        
+        //Logout a User
+        var logout = ref.unauth(authDataCallback);
 
         function authHandler(error, authData) {
             if (error) {

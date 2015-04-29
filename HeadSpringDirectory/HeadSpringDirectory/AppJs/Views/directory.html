@@ -46,7 +46,67 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <div>
+    <!--Search Field and List of Employees by name-->
+    <div><input ng-model="searchText" placeholder="Search..." class="form-control" /></div>
+    <div class="col-xs-5 panel-body">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a class="list-group-item" ng-repeat="employee in directory | filter: searchText">{{employee.name}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--Default message if no employee is currently selected-->
+    <div class="card-container col-sm-6 col-md-offset-2 col-md-4">
+        <div class="card">
+            <div class="front">
+                <div class="cover">
+                    <img src="" />
+                </div>
+                <div class="user">
+                    <img class="img-circle" src="../../img/DefaultImage.jpg" />
+                </div>
+                <div class="content">
+                    <div class="main">
+                        <h3 class="name">Inna Corman</h3>
+                        <p class="profession">Product Manager</p>
+                        <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Paris, France</h5>
+                        <h5><i class="fa fa-building-o fa-fw text-muted"></i> Creative Tim Inc. </h5>
+                        <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> inna@creative-tim.com</h5>
+                    </div>
+                    <div class="footer">
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end front panel -->
+            <div class="back">
+                <div class="header">
+                    <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                </div>
+                <div class="content">
+                    <div class="main">
+                        <h4 class="text-center">Experince</h4>
+                        <p>Inna was working with our team since 2012.</p>
+                        <h4 class="text-center">Areas of Expertise</h4>
+                        <p>Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="social-links text-center">
+                        <a href="http://cretive-tim.com" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+                        <a href="http://cretive-tim.com" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+                        <a href="http://cretive-tim.com" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+                    </div>
+                </div>
+            </div> <!-- end back panel -->
+        </div> <!-- end card -->
+    </div> <!-- end card-container -->
+
+    <!--<div>
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
@@ -59,7 +119,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="employee in directory">
+                <tr ng-repeat="employee in directory | filter: searchText">
                     <td>{{employee.name}}</td>
                     <td>{{employee.jobTitle}}</td>
                     <td>{{employee.location}}</td>
@@ -73,4 +133,4 @@
             </tbody>
         </table>
     </div>
-</div>
+</div>-->

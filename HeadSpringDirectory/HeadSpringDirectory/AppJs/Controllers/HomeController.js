@@ -32,6 +32,10 @@
             });
         }
 
+        $scope.logout = function () {
+            LoginFactory.logout();
+        }
+
         //Function to add a new Employee to the directory
         $scope.addNewEmployee = function () {
             $scope.newEmployee = new $scope.employee($scope.employeeName, $scope.employeeJobTitle, $scope.employeeLocation, $scope.employeeEmail, $scope.employeeNumber);
