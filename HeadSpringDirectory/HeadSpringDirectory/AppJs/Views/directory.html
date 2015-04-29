@@ -1,5 +1,12 @@
 ﻿<div>
+    <div>
+        <nav>
+            <h2>Employee Directory 3000</h2>
+            <input type="button" class="login-button btn btn-primary directory-nav" ng-click="logout()" value="Logout" />
 
+            <input type="button" data-toggle="modal" data-target="#addModal" class="login-button btn btn-primary directory-nav" value="Add New Employee" />
+        </nav>
+    </div>
     <!--ADD NEW EMPLOYEE MODAL-->
     <div class="modal fade" id="addModal">
         <div class="modal-dialog">
@@ -22,7 +29,6 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
     <!--EDIT EMPLOYEE MODAL-->
     <div class="modal fade" id="editModal">
         <div class="modal-dialog">
@@ -45,19 +51,22 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
     <!--Search Field and List of Employees by name-->
     <div><input ng-model="searchText" placeholder="Search..." class="form-control" /></div>
     <div class="col-xs-5 panel-body">
         <ul class="list-group">
-            <li class="list-group-item">
-                <a class="list-group-item" ng-repeat="employee in directory | filter: searchText">{{employee.name}}</a>
+            <li class="list-group-item" ng-repeat="employee in directory | filter: searchText">
+                <a class="list-group-item" ng-click="editClick($index)">
+                    {{employee.name}}
+                </a>
+                <button class="edit-buttons" data-toggle="modal" data-target="#editModal" ng-click="editClick($index)"><i class="fa fa-pencil-square-o"></i></button>
+                <button class="edit-buttons" ng-click="deleteEmployee($index)"><i class="fa fa-trash-o"></i></button>
             </li>
         </ul>
     </div>
 
     <!--Default message if no employee is currently selected-->
-    <div class="card-container col-sm-6 col-md-offset-2 col-md-4">
+    <div class="card-container">
         <div class="card">
             <div class="front">
                 <div class="cover">
@@ -68,18 +77,17 @@
                 </div>
                 <div class="content">
                     <div class="main">
-                        <h3 class="name">Inna Corman</h3>
-                        <p class="profession">Product Manager</p>
-                        <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Paris, France</h5>
-                        <h5><i class="fa fa-building-o fa-fw text-muted"></i> Creative Tim Inc. </h5>
-                        <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> inna@creative-tim.com</h5>
+                        <h3 class="name">{{employeeObj.name}}</h3>
+                        <p class="profession">{{employeeObj.jobTitle}}</p>
+                        <h5><i class="fa fa-map-marker fa-fw text-muted"></i>{{employeeObj.location}}</h5>
+                        <h5><i class="fa fa-phone fa-fw text-muted"></i>{{employeeObj.phone}}</h5>
+                        <h5><i class="fa fa-envelope-o fa-fw text-muted"></i>{{employeeObj.email}}</h5>
                     </div>
                     <div class="footer">
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
+                        <button class="btn btn-simple" onclick="rotateCard(this)">
+                            <i class="glyphicon glyphicon-share-alt"></i>
+                            Flip
+                        </button>
                     </div>
                 </div>
             </div> <!-- end front panel -->
@@ -105,32 +113,5 @@
             </div> <!-- end back panel -->
         </div> <!-- end card -->
     </div> <!-- end card-container -->
+</div>
 
-    <!--<div>
-        <table class="table table-bordered table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Job Title</th>
-                    <th>Location</th>
-                    <th>Phone Number</th>
-                    <th>Email Address</th>
-                    <th>Edit/Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="employee in directory | filter: searchText">
-                    <td>{{employee.name}}</td>
-                    <td>{{employee.jobTitle}}</td>
-                    <td>{{employee.location}}</td>
-                    <td>{{employee.phone}}</td>
-                    <td>{{employee.email}}</td>
-                    <td>
-                        <input type="button" data-toggle="modal" data-target="#editModal" ng-click="editClick($index)" class="edit-button btn btn-primary" value="Edit" />
-                        <input type="button" ng-click="deleteEmployee($index)" class="edit-button btn btn-primary" value="Delete" />
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>-->

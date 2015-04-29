@@ -34,6 +34,7 @@
 
         $scope.logout = function () {
             LoginFactory.logout();
+            $location.path('/home');
         }
 
         //Function to add a new Employee to the directory

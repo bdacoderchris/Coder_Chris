@@ -19,11 +19,9 @@
     <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <input type="button" class="login-button btn btn-primary" ng-hide="authData" ng-click="logout()" value="Logout" />
-        <a href="/#/directory" class="login-button btn btn-primary" ng-hide="!authData">Directory</a>
-        <input type="button" data-toggle="modal" data-target="#addModal" class="login-button btn btn-primary" ng-hide="authData" value="Add New Employee" />
-    </nav>
+    <!--<nav class="navbar" ng-controller="HomeController">
+        
+    </nav>-->
     <div ng-view="">
     </div>
 
