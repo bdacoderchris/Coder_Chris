@@ -1,0 +1,6 @@
+c:\users\christopher\documents\visual studio 2013\Projects\TileEstimator\TileEstimator\bin\TileEstimator.dll.config
+c:\users\christopher\documents\visual studio 2013\Projects\TileEstimator\TileEstimator\bin\TileEstimator.dll
+c:\users\christopher\documents\visual studio 2013\Projects\TileEstimator\TileEstimator\bin\TileEstimator.pdb
+c:\users\christopher\documents\visual studio 2013\Projects\TileEstimator\TileEstimator\obj\Debug\TileEstimator.csprojResolveAssemblyReference.cache
+c:\users\christopher\documents\visual studio 2013\Projects\TileEstimator\TileEstimator\obj\Debug\TileEstimator.dll
+c:\users\christopher\documents\visual studio 2013\Projects\TileEstimator\TileEstimator\obj\Debug\TileEstimator.pdb
