@@ -1,1 +1,9 @@
-﻿<h1>Test</h1>
+﻿<h1>Tile Estimator</h1>
+<div ng-controller="HomeController">
+    <form>
+        <p>Width(ft): <input type="text" ng-model="widthFeet" /></p><p>(in): <input type="text" ng-model="widthInches" /></p><br />
+        <p>Depth(ft): <input type="text" ng-model="depthFeet" /></p><p>(in): <input type="text" ng-model="depthInches" /></p><br />
+        <button type="button" ng-click="roomArea()">Submit</button>
+        <p ng-bind="result"></p>
+    </form>
+</div>
