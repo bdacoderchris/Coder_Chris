@@ -88,6 +88,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="image\Grey-Vinyl-Tile-Flooring-Patterns.jpg" />
     <Content Include="image\SP0833_all-stone-kitchen_s3x4.jpg.rend.hgtvcom.1280.1707.jpeg" />
     <Content Include="index.html" />
     <Content Include="Scripts\angular-animate.js" />

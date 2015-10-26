@@ -7,6 +7,13 @@
         depthInches: 0
     }
 
+    $scope.pattern = {};
+    $scope.patternType = [
+        { id: 1, name: "Traditional", value: 1.10 },
+        { id: 2, name: "Diagonal", value: 1.20 }
+    ];
+    $scope.patternType.selected = {};
+
     $scope.groutThickness = {};
     $scope.grout = [
         { id: 1, name: "1/4 inch", value: .063 },
@@ -29,8 +36,8 @@
     $scope.roomArea = function () {
         var width = ($scope.dimensions.widthFeet * 12) + ($scope.dimensions.widthInches);
         var depth = (($scope.dimensions.depthFeet * 12) + $scope.dimensions.depthInches);
-        $scope.result = ((width * depth) / (144 - $scope.groutThickness.selected.value)) * 1.10;
-        $scope.numTiles = ((width * depth) / ($scope.tileSize.selected.value - $scope.groutThickness.selected.value)) * 1.10;
+        $scope.result = ((width * depth) / (144 - $scope.groutThickness.selected.value)) * $scope.patternType.selected.value;
+        $scope.numTiles = ((width * depth) / ($scope.tileSize.selected.value - $scope.groutThickness.selected.value)) * $scope.patternType.selected.value;
 
         $scope.dimensions = {
             widthFeet: "",
@@ -40,5 +47,6 @@
         }
         $scope.tileSize = {};
         $scope.groutThickness = {};
+        $scope.pattern = {};
     }
 }])

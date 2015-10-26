@@ -1,4 +1,4 @@
-﻿<h1 class="site-header">Tile Calculator 3000</h1>
+﻿<h1 class="site-header">Smartcook Tile Estimator</h1>
 <div ng-controller="HomeController">
     <form name="defaultForm" class="form-inline tile-form">
         <div class="form-group">
@@ -29,10 +29,16 @@
                 <option value="" disabled selected>Grout Thickness</option>
             </select>
         </div>
-        <div>
-            <button class="btn btn-primary" type="button" ng-click="roomArea(); resetForm()">Submit</button>
+        <div class="form-group">
+            <label for="pattern-type" class="tile-label">Tile Pattern</label>
+            <select class="form-control" id="pattern-type" ng-options="selected.name for selected in patternType track by selected.id" ng-model="patternType.selected" required>
+                <option value="" disabled selected>Tile Pattern</option>
+            </select>
         </div>
+        <div>
+            <button class="btn btn-primary submit-button" type="button" ng-click="roomArea(); resetForm()">Calculate</button>
+        </div>
+        <h3 ng-show="result" class="ng-hide result">Sq Ft of Tile Required: {{result | number: 2}}</h3><br />
+        <h3 ng-show="result" class="ng-hide result">Number of Tiles Needed: {{numTiles | number: 2}}</h3>
     </form>
-    <h3 ng-show="result" class="ng-hide result">Sq Ft of Tile Required: {{result | number: 2}}</h3><br />
-    <h3 ng-show="result" class="ng-hide result">Number of Tiles Needed: {{numTiles | number: 2}}</h3>
 </div>

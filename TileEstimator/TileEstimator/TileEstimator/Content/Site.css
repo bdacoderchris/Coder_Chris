@@ -1,5 +1,8 @@
 ﻿body {
     background-image: url('../image/SP0833_all-stone-kitchen_s3x4.jpg.rend.hgtvcom.1280.1707.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 .site-header {
     text-align: center;
@@ -19,5 +22,7 @@
 }
 .result {
     text-align: center;
-    color: white;
+}
+.submit-button {
+    margin-top: 5px;
 }
