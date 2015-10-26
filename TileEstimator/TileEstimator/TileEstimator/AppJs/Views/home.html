@@ -1,0 +1,38 @@
+﻿<h1 class="site-header">Tile Calculator 3000</h1>
+<div ng-controller="HomeController">
+    <form name="defaultForm" class="form-inline tile-form">
+        <div class="form-group">
+            <label for="width-ft">Width(ft)</label>
+            <input type="number" class="form-control" id="width-ft" ng-model="dimensions.widthFeet" required/>
+        </div>
+        <div class="form-group">
+            <label for="width-in">(in)</label>
+            <input type="number" class="form-control" id="width-in" ng-model="dimensions.widthInches"/>
+        </div><br />
+        <div class="form-group">
+            <label for="depth-ft" class="tile-label">Depth(ft)</label>
+            <input type="number" class="form-control" id="depth-ft" ng-model="dimensions.depthFeet" required />
+        </div>
+        <div class="form-group">
+            <label for="depth-in" class="tile-label">(in)</label>
+            <input type="number" class="form-control" id="depth-in" ng-model="dimensions.depthInches" />
+        </div><br />
+        <div class="form-group">
+            <label for="tile-size" class="tile-label">Tile Size</label>
+            <select class="form-control" id="tile-size" ng-options="selected.name for selected in tile track by selected.id" ng-model="tileSize.selected" required>
+                <option value="" disabled selected>Tile Size</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="grout-thickness" class="tile-label">Grout Thickness</label>
+            <select class="form-control" id="grout-thickness" ng-options="selected.name for selected in grout track by selected.id" ng-model="groutThickness.selected" required>
+                <option value="" disabled selected>Grout Thickness</option>
+            </select>
+        </div>
+        <div>
+            <button class="btn btn-primary" type="button" ng-click="roomArea(); resetForm()">Submit</button>
+        </div>
+    </form>
+    <h3 ng-show="result" class="ng-hide result">Sq Ft of Tile Required: {{result | number: 2}}</h3><br />
+    <h3 ng-show="result" class="ng-hide result">Number of Tiles Needed: {{numTiles | number: 2}}</h3>
+</div>

@@ -1,0 +1,23 @@
+﻿body {
+    background-image: url('../image/SP0833_all-stone-kitchen_s3x4.jpg.rend.hgtvcom.1280.1707.jpeg');
+}
+.site-header {
+    text-align: center;
+    color: white;
+}
+.tile-form {
+    background-color:antiquewhite;
+    text-align: center;
+    border: solid;
+    padding: 5px;
+    max-width: 45%;
+    margin:0 auto;
+    border-radius: 4px;
+}
+.tile-form .tile-label {
+    text-align: left;
+}
+.result {
+    text-align: center;
+    color: white;
+}
