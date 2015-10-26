@@ -1,6 +1,0 @@
-c:\users\christopher\documents\visual studio 2013\Projects\HeadSpringDirectory\HeadSpringDirectory\bin\HeadSpringDirectory.dll.config
-c:\users\christopher\documents\visual studio 2013\Projects\HeadSpringDirectory\HeadSpringDirectory\bin\HeadSpringDirectory.dll
-c:\users\christopher\documents\visual studio 2013\Projects\HeadSpringDirectory\HeadSpringDirectory\bin\HeadSpringDirectory.pdb
-c:\users\christopher\documents\visual studio 2013\Projects\HeadSpringDirectory\HeadSpringDirectory\obj\Debug\HeadSpringDirectory.csprojResolveAssemblyReference.cache
-c:\users\christopher\documents\visual studio 2013\Projects\HeadSpringDirectory\HeadSpringDirectory\obj\Debug\HeadSpringDirectory.dll
-c:\users\christopher\documents\visual studio 2013\Projects\HeadSpringDirectory\HeadSpringDirectory\obj\Debug\HeadSpringDirectory.pdb
