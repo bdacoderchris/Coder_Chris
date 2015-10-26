@@ -1,9 +1,16 @@
 ﻿<h1>Tile Estimator</h1>
 <div ng-controller="HomeController">
     <form>
-        <p>Width(ft): <input type="text" ng-model="widthFeet" /></p><p>(in): <input type="text" ng-model="widthInches" /></p><br />
-        <p>Depth(ft): <input type="text" ng-model="depthFeet" /></p><p>(in): <input type="text" ng-model="depthInches" /></p><br />
-        <button type="button" ng-click="roomArea()">Submit</button>
-        <p ng-bind="result"></p>
+        <p>Width(ft): <input type="number" ng-model="dimensions.widthFeet" /></p><p>(in): <input type="number" ng-model="dimensions.widthInches" /></p><br />
+        <p>Depth(ft): <input type="number" ng-model="dimensions.depthFeet" /></p><p>(in): <input type="number" ng-model="dimensions.depthInches" /></p><br />
+        <div>
+            <select ng-options="selected.name for selected in tile track by selected.id" ng-model="tileSize.selected">
+                <option value="" disabled selected>Tile Size</option>
+            </select>
+        </div>
+        <div>
+            <button type="button" ng-click="roomArea()">Submit</button>
+        </div>
     </form>
+    <p>{{result | number: 2}}</p>
 </div>
